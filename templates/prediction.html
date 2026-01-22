@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Drug Recommendation System in Medical 
+    Emergencies using Machine Learning</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+<!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/assets/css/styles.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Delicious - v4.3.0
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+
+  <style>
+            
+                  
+            
+    h1 {
+        color:#fd0101;
+    }
+    td{
+color: #0501fd;
+}
+select
+{
+    color:#01adfd; 
+}
+input
+{
+    color: #01adfd; 
+}
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <div class="logo me-auto">
+        <h1><a href="index.html">Drug Recommendation System</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+    <li><a class="nav-link scrollto active" href="{{url_for('index')}}">Home</a></li>
+			<li><a class="nav-link scrollto active" href="{{url_for('login')}}">Login</a></li>
+			<li><a class="nav-link scrollto active" href="{{url_for('upload')}}">Upload</a></li>
+			<li><a class="nav-link scrollto active" href="{{url_for('prediction')}}">Prediction</a></li>
+			<li><a class="nav-link scrollto active" href="{{url_for('performance')}}">Performance_analysis</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+ 
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background: url(../static/assets/img/slide/hate6.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown"><span>Drug Recommendation System</span> </h2>
+                <p class="animate__animated animate__fadeInUp"></p>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+           
+ 
+
+         
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+     
+    <!-- ======= Events Section ======= -->
+     
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Drug  <span> Recommendation</span></h2>
+           
+        </div>
+ 
+
+
+
+
+        <form action="{{ url_for('predict')}}" method="POST">
+          <div class="section-title">
+   
+   
+          </div>
+              <div class="scrollable">
+              
+                 <center>     <table> </center> 
+                  <tbody>
+                      
+                           
+                         <td>Itching:</td>
+                          <td>
+                              <select type="text" name="Itching" method="post" required="required" placeholder="Itching" width="200" style="width: 200px">
+                               
+                                <option value="0">No</option>
+                                <option value="1">Yes</option> 
+                                 
+                              
+                                 
+                              </select>
+                          </td>
+                          
+                          <td>Skin_Rash:</td>
+                          <td>
+                              <select type="text" name="skin_rash" method="post" required="required" placeholder="skin_rash" width="200" style="width: 200px">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option> 
+                                   
+                                 
+                              
+                                 
+                              </select>
+                          </td>
+                          
+                           </tbody>
+                      
+
+                           <tbody>
+                      
+                           
+                            <td>Nodal_Skin_Eruptions:</td>
+                             <td>
+                                 <select type="text" name="nodal_skin_eruptions" method="post" required="required" placeholder="nodal_skin_eruptions" width="200" style="width: 200px">
+                                  <option value="0">No</option>
+                                  <option value="1">Yes</option> 
+                                      
+                                    
+                                 
+                                    
+                                 </select>
+                             </td>
+                             
+                             <td>Continuous_Sneezing:</td>
+                             <td>
+                                 <select type="text" name="continuous_sneezing" method="post" required="required" placeholder="continuous_sneezing" width="200" style="width: 200px">
+                                  <option value="0">No</option>
+                                  <option value="1">Yes</option> 
+                                      
+                                    
+                                 
+                                    
+                                 </select>
+                             </td>
+                             
+                              </tbody>
+                         
+
+
+
+
+                              <tbody>
+                      
+
+                                <td>Shivering:</td>
+                                <td>
+                                    <select type="text" name="shivering" method="post" required="required" placeholder="shivering" width="200" style="width: 200px">
+                                      <option value="0">No</option>
+                                      <option value="1">Yes</option> 
+                                         
+                                       
+                                    
+                                       
+                                    </select>
+                                </td>
+
+                           
+                                <td>Chills:</td>
+                                 <td>
+                                     <select type="text" name="chills" method="post" required="required" placeholder="chills" width="200" style="width: 200px">
+                                      <option value="0">No</option>
+                                      <option value="1">Yes</option> 
+                                          
+                                        
+                                     
+                                        
+                                     </select>
+                                 </td>
+                                 
+                                  
+                                 
+                                  </tbody>
+
+
+
+
+                                  <tbody>
+                      
+
+                                    <td>Stomach_pain:</td>
+                                    <td>
+                                        <select type="text" name="stomach_pain" method="post" required="required" placeholder="stomach_pain" width="200" style="width: 200px">
+                                          <option value="0">No</option>
+                                          <option value="1">Yes</option> 
+                                             
+                                           
+                                        
+                                           
+                                        </select>
+                                    </td>
+    
+                               
+                                    <td>Ulcers_On_Tongue:</td>
+                                     <td>
+                                         <select type="text" name="ulcers_on_tongue" method="post" required="required" placeholder="ulcers_on_tongue" width="200" style="width: 200px">
+                                          <option value="0">No</option>
+                                          <option value="1">Yes</option> 
+                                              
+                                            
+                                         
+                                            
+                                         </select>
+                                     </td>
+                                     
+                                      
+                                     
+                                      </tbody>
+                             
+
+
+
+                                      <tbody>
+                      
+
+                                        <td>Vomiting:</td>
+                                        <td>
+                                            <select type="text" name="vomiting" method="post" required="required" placeholder="vomiting" width="200" style="width: 200px">
+                                              <option value="0">No</option>
+                                              <option value="1">Yes</option> 
+                                                 
+                                               
+                                            
+                                               
+                                            </select>
+                                        </td>
+        
+                                   
+                                        <td>Cough:</td>
+                                         <td>
+                                             <select type="text" name="cough" method="post" required="required" placeholder="cough" width="200" style="width: 200px">
+                                              <option value="0">No</option>
+                                              <option value="1">Yes</option> 
+                                                  
+                                                
+                                             
+                                                
+                                             </select>
+                                         </td>
+                                         
+                                          
+                                         
+                                          </tbody>
+
+
+
+
+                                          <tbody>
+                      
+
+                                            <td>Chest_Pain:</td>
+                                            <td>
+                                                <select type="text" name="chest_pain" method="post" required="required" placeholder="chest_pain" width="200" style="width: 200px">
+                                                  <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                   
+                                                
+                                                   
+                                                </select>
+                                            </td>
+            
+                                       
+                                            <td>Yellowish_Skin:</td>
+                                             <td>
+                                                 <select type="text" name="yellowish_skin" method="post" required="required" placeholder="yellowish_skin" width="200" style="width: 200px">
+                                                  <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                      
+                                                    
+                                                 
+                                                    
+                                                 </select>
+                                             </td>
+                                             
+                                              
+                                             
+                                              </tbody>
+
+
+
+
+
+
+                                              <tbody>
+                      
+
+                                                <td>Loss_Of_Appetite:</td>
+                                                <td>
+                                                    <select type="text" name="loss_of_appetite" method="post" required="required" placeholder="loss_of_appetite" width="200" style="width: 200px">
+                                                      <option value="0">No</option>
+                                                      <option value="1">Yes</option> 
+                                                       
+                                                    
+                                                       
+                                                    </select>
+                                                </td>
+                
+                                           
+                                                <td>Abdominal_Pain:</td>
+                                                 <td>
+                                                     <select type="text" name="abdominal_pain" method="post" required="required" placeholder="abdominal_pain" width="200" style="width: 200px">
+                                                      <option value="0">No</option>
+                                                      <option value="1">Yes</option> 
+                                                        
+                                                     
+                                                        
+                                                     </select>
+                                                 </td>
+                                                 
+                                                  
+                                                 
+                                                  </tbody>        
+                                                  
+                                                  
+
+                                                  <tbody>
+                      
+
+                                                    <td>Yellow_Urine:</td>
+                                                    <td>
+                                                        <select type="text" name="yellow_urine" method="post" required="required" placeholder="yellow_urine" width="200" style="width: 200px">
+                                                          <option value="0">No</option>
+                                                          <option value="1">Yes</option> 
+                                                           
+                                                        
+                                                           
+                                                        </select>
+                                                    </td>
+                    
+                                               
+                                                    <td>Weight_Loss:</td>
+                                                     <td>
+                                                         <select type="text" name="weight_loss" method="post" required="required" placeholder="weight_loss" width="200" style="width: 200px">
+                                                          <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                              
+                                                            
+                                                         
+                                                            
+                                                         </select>
+                                                     </td>
+                                                     
+                                                      
+                                                     
+                                                      </tbody>      
+                                                      
+                                                      
+
+
+
+
+                                                      <tbody>
+                      
+
+                                                        <td>Restlessness:</td>
+                                                        <td>
+                                                            <select type="text" name="restlessness" method="post" required="required" placeholder="restlessness" width="200" style="width: 200px">
+                                                              <option value="0">No</option>
+                                                              <option value="1">Yes</option> 
+                                                               
+                                                            
+                                                               
+                                                            </select>
+                                                        </td>
+                        
+                                                   
+                                                        <td>Irregular_Sugar_Level:</td>
+                                                         <td>
+                                                             <select type="text" name="irregular_sugar_level" method="post" required="required" placeholder="irregular_sugar_level" width="200" style="width: 200px">
+                                                              <option value="0">No</option>
+                                                              <option value="1">Yes</option> 
+                                                             
+                                                                
+                                                             </select>
+                                                         </td>
+                                                         
+                                                          
+                                                         
+                                                          </tbody>            
+
+
+
+
+
+
+
+                                                          <tbody>
+                      
+
+                                                            <td>Excessive_Hunger:</td>
+                                                            <td>
+                                                                <select type="text" name="excessive_hunger" method="post" required="required" placeholder="excessive_hunger" width="200" style="width: 200px">
+                                                                  <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                                   
+                                                                
+                                                                   
+                                                                </select>
+                                                            </td>
+                            
+                                                       
+                                                            <td>Increased_Appetite:</td>
+                                                             <td>
+                                                                 <select type="text" name="increased_appetite" method="post" required="required" placeholder="increased_appetite" width="200" style="width: 200px">
+                                                                  <option value="0">No</option>
+                                                                  <option value="1">Yes</option> 
+                                                                    
+                                                                 
+                                                                    
+                                                                 </select>
+                                                             </td>
+                                                             
+                                                              
+                                                             
+                                                              </tbody>          
+
+
+
+
+
+
+
+
+                                                              <tbody>
+                      
+
+                                                                <td>High_Fever:</td>
+                                                                <td>
+                                                                    <select type="text" name="high_fever" method="post" required="required" placeholder="high_fever" width="200" style="width: 200px">
+                                                                      <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                                       
+                                                                    
+                                                                       
+                                                                    </select>
+                                                                </td>
+                                
+                                                           
+                                                                <td>Headache:</td>
+                                                                 <td>
+                                                                     <select type="text" name="headache" method="post" required="required" placeholder="headache" width="200" style="width: 200px">
+                                                                      <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                                        
+                                                                     
+                                                                        
+                                                                     </select>
+                                                                 </td>
+                                                                 
+                                                                  
+                                                                 
+                                                                  </tbody>     
+                                                                  
+                                                                  
+
+
+
+                                                                  
+                                                              <tbody>
+                      
+
+                                                                <td>Diarrhoea:</td>
+                                                                <td>
+                                                                    <select type="text" name="diarrhoea" method="post" required="required" placeholder="diarrhoea" width="200" style="width: 200px">
+                                                                      <option value="0">No</option>
+                                                                      <option value="1">Yes</option> 
+                                                                         
+                                                                       
+                                                                    
+                                                                       
+                                                                    </select>
+                                                                </td>
+                                
+                                                           
+                                                                <td>Muscle_Pain:</td>
+                                                                 <td>
+                                                                     <select type="text" name="muscle_pain" method="post" required="required" placeholder="muscle_pain" width="200" style="width: 200px">
+                                                                      <option value="0">No</option>
+                                                                      <option value="1">Yes</option> 
+                                                                        
+                                                                     
+                                                                        
+                                                                     </select>
+                                                                 </td>
+                                                                 
+                                                                  
+                                                                 
+                                                                  </tbody> 
+
+
+
+
+
+
+
+
+
+                                                                  <tbody>
+                      
+
+                                                                    <td>Red_Spots_Over_Body:</td>
+                                                                    <td>
+                                                                        <select type="text" name="red_spots_over_body" method="post" required="required" placeholder="red_spots_over_body" width="200" style="width: 200px">
+                                                                          <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                                             
+                                                                           
+                                                                        
+                                                                           
+                                                                        </select>
+                                                                    </td>
+                                    
+                                                               
+                                                                    <td>Runny_Nose:</td>
+                                                                     <td>
+                                                                         <select type="text" name="runny_nose" method="post" required="required" placeholder="runny_nose" width="200" style="width: 200px">
+                                                                          <option value="0">No</option>
+                                                                          <option value="1">Yes</option> 
+                                                                              
+                                                                            
+                                                                         
+                                                                            
+                                                                         </select>
+                                                                     </td>
+                                                                     
+                                                                      
+                                                                     
+                                                                      </tbody> 
+
+
+
+
+
+
+
+
+
+
+                                                                      <tbody>
+                      
+
+                                                                        <td>Breathlessness:</td>
+                                                                        <td>
+                                                                            <select type="text" name="breathlessness" method="post" required="required" placeholder="breathlessness" width="200" style="width: 200px">
+                                                                              <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                                                               
+                                                                            
+                                                                               
+                                                                            </select>
+                                                                        </td>
+                                        
+                                                                   
+                                                                        <td>Fast_Heart_Rate:</td>
+                                                                         <td>
+                                                                             <select type="text" name="fast_heart_rate" method="post" required="required" placeholder="fast_heart_rate" width="200" style="width: 200px">
+                                                                              <option value="0">No</option>
+                                                                              <option value="1">Yes</option> 
+                                                                                  
+                                                                                
+                                                                             
+                                                                                
+                                                                             </select>
+                                                                         </td>
+                                                                         
+                                                                          
+                                                                         
+                                                                          </tbody> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <tbody>
+
+
+                            <td>Dark_Urine:</td>
+                            <td>
+                                <select type="text" name="dark_urine" method="post" required="required" placeholder="dark_urine" width="200" style="width: 200px">
+                                  <option value="0">No</option>
+                                                  <option value="1">Yes</option> 
+                                   
+                                
+                                   
+                                </select>
+                            </td>
+
+
+                      <td>Model:</td>
+                      <td>
+                          <select type="text" name="model" method="post" required="required" placeholder="Model" width="200" style="width: 200px">
+                             
+                   <option value="RandomForestClassifier">RandomForestClassifier</option>
+                   <option value="DecisionTreeClassifier">DecisionTreeClassifier</option> 
+             
+                   
+                 
+               
+               
+               
+               
+                          </select>
+                      </td>
+          
+                    
+          
+          
+           </tbody> 
+  
+                      
+                  </table>
+                  </br>
+                  </br>
+                  <div class="center">
+                    <center>  <button type="submit" class="btn btn-primary ">Predict</button> </center> 
+                  </div>
+              </div>
+          </form>
+          <br>
+          <br>
+          <center>
+        
+       
+              <h1>Disease is :{{ prediction_text }}</h1>
+
+
+              <h1>Model:{{ model }}</h1>
+             
+             </center>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </section><!-- End Book A Table Section -->
+
+    <!-- ======= Gallery Section ======= -->
+ 
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3> </h3>
+      <p> </p>
+      
+      
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+
+</body>
+
+</html>
