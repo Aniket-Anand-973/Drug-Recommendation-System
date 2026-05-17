@@ -4,3 +4,5 @@ pandas>=2.2.2
 matplotlib>=3.8.4
 scikit-learn>=1.4.2
 gunicorn==21.2.0
+joblib
+pickle-mixin
