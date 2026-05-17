@@ -4,14 +4,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd 
 import numpy as np 
+import os
 
 
 import pickle
 
 app = Flask(__name__)
 
-random = pickle.load(open('random.pkl','rb'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+model_path = os.path.join(BASE_DIR, "decision.pkl")
+model = pickle.load(open(model_path, "rb"))
 @app.route('/')
 @app.route('/index')
 def index():
